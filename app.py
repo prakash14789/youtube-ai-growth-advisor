@@ -1,17 +1,23 @@
 import streamlit as st
+import ui
 
-st.set_page_config(page_title="AI YouTube Growth Advisor", layout="centered")
+st.set_page_config(layout="wide", page_title="AI YouTube Growth Advisor")
 
-st.title("🚀 AI YouTube Growth Advisor")
+# Apply custom styling
+ui.apply_custom_style()
 
-st.markdown("""
-Welcome to your AI-powered YouTube Growth Strategist.
+# Header
+ui.render_header()
 
-This tool will:
-- Analyze your YouTube channel
-- Generate a Channel Health Score
-- Suggest trending topics
-- Provide weekly AI growth strategies
-""")
+# Input Form
+submitted, niche, age, goal, content_type, upload_freq = ui.render_channel_form()
 
-st.info("Step 1: YouTube Login integration coming next.")
+# Results
+if submitted:
+    # In a real app, you would process the inputs here to generate metrics
+    # For now, we use the placeholder values as per original design
+    ui.render_metrics(
+        growth_momentum="▲ 12%",
+        engagement_score="78/100",
+        upload_consistency="Moderate"
+    )
